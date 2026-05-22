@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>루비 & 끝순이의 우당탕탕 놀이터 🐾</title>
+  <meta name="description" content="근육질 다정묘 러시안블루 '루비'와 작고 뚱해서 매력 넘치는 발리니즈 '끝순이'의 사랑스러운 일상을 소개합니다! 장난감 배틀과 귀여운 인터랙션이 가득해요.">
+  <!-- Google Fonts: Jua & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <!-- FontAwesome for cute icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Custom Cursor Trail Canvas -->
+  <canvas id="trailCanvas"></canvas>
+
+  <!-- Background floating elements -->
+  <div class="floating-bubble" style="left: 10%; width: 60px; height: 60px; animation-delay: 0s;"></div>
+  <div class="floating-bubble" style="left: 80%; width: 40px; height: 40px; animation-delay: 2s;"></div>
+  <div class="floating-bubble" style="left: 45%; width: 80px; height: 80px; animation-delay: 4s;"></div>
+  <div class="floating-bubble" style="left: 20%; width: 50px; height: 50px; animation-delay: 7s;"></div>
+  <div class="floating-bubble" style="left: 90%; width: 70px; height: 70px; animation-delay: 5s;"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <span class="logo-emoji">🐾</span>
+        <h1>루비 & 끝순이네</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#profiles">소개</a></li>
+          <li><a href="#playzone">놀이터</a></li>
+          <li><a href="#gallery">갤러리</a></li>
+          <li><a href="#guestbook">방명록</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-text animate-fade-in-left">
+          <span class="badge">Active & Cute! 🔥</span>
+          <h2>우당탕탕 일상에<br>어서오세요!</h2>
+          <p>
+            우람하고 다정한 애교쟁이 10살 오빠 <strong>루비</strong>와,<br>
+            뚱한 표정이 세상에서 제일 치명적인 9살 동생 <strong>끝순이</strong>!<br>
+            성격도 매력도 정반대인 두 녀석의 아기자기한 매력에 빠져보세요! 
+          </p>
+          <div class="hero-actions">
+            <a href="#playzone" class="btn btn-primary btn-bounce">놀아주러 가기 <i class="fa-solid fa-gamepad"></i></a>
+            <a href="#guestbook" class="btn btn-secondary">사랑의 편지 쓰기 ✉️</a>
+          </div>
+        </div>
+        <div class="hero-image animate-fade-in-right">
+          <div class="hero-image-wrapper">
+            <img src="pic/20170821_192828.jpg" alt="정답게 낮잠 자는 루비와 끝순이" id="heroCatImg">
+            <div class="deco-badge pink-badge">우당탕탕! 💥</div>
+            <div class="deco-badge orange-badge">우린 단짝! 🐱</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profiles Section -->
+    <section id="profiles" class="profiles">
+      <div class="container">
+        <div class="section-title text-center">
+          <span class="subtitle">Meet Our Cats</span>
+          <h3>우당탕탕 주인공 소개</h3>
+          <p class="section-desc">성격도, 외모도 180도 다른 루비와 끝순이의 개성 넘치고 매력적인 정보!</p>
+        </div>
+
+        <div class="profiles-grid">
+          <!-- Card 1: Ruby -->
+          <div class="profile-card ruby-card" id="rubyCard">
+            <div class="profile-badge blue-label">오빠 🏋️‍♂️</div>
+            <div class="profile-image-container">
+              <img src="pic/20170818_002122.jpg" alt="청바지 위에 점잖게 앉아 있는 러시안블루 루비">
+              <div class="profile-heart-trigger" onclick="triggerHeartSplash(event, 'ruby')">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <div class="profile-info">
+              <h4>루비 (Ruby)</h4>
+              <div class="meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-cat"></i> 러시안블루</span>
+                <span class="meta-tag"><i class="fa-solid fa-cake-candles"></i> 10살</span>
+                <span class="meta-tag"><i class="fa-solid fa-mars"></i> 남아 (중성화 완료)</span>
+              </div>
+              <p class="profile-bio">
+                부드럽고 윤기나는 실버블루 코트를 입은 듬직한 오빠! 탄탄한 근육질 몸매를 가졌지만 사실 사람을 엄청 좋아하고 부비부비를 좋아하는 1등 개냥이랍니다!
+              </p>
+              <div class="stat-container">
+                <h5>루비의 매력 능력치</h5>
+                <div class="stat-bar">
+                  <span class="stat-label">사교성 (Friendly)</span>
+                  <div class="progress-bg"><div class="progress-fill ruby-fill" style="width: 100%;"></div></div>
+                  <span class="stat-val">100%</span>
+                </div>
+                <div class="stat-bar">
+                  <span class="stat-label">근육량 (Muscular)</span>
+                  <div class="progress-bg"><div class="progress-fill ruby-fill" style="width: 95%;"></div></div>
+                  <span class="stat-val">95%</span>
+                </div>
+                <div class="stat-bar">
+                  <span class="stat-label">목소리 (Purring)</span>
+                  <div class="progress-bg"><div class="progress-fill ruby-fill" style="width: 90%;"></div></div>
+                  <span class="stat-val">90%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Kkeutsuni -->
+          <div class="profile-card kkeutsuni-card" id="kkeutsuniCard">
+            <div class="profile-badge orange-label">동생 💅</div>
+            <div class="profile-image-container">
+              <img src="pic/20180218_174703.jpg" alt="상자 안에서 뚱한 표정을 짓고 있는 발리니즈 끝순이">
+              <div class="profile-heart-trigger" onclick="triggerHeartSplash(event, 'kkeutsuni')">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <div class="profile-info">
+              <h4>끝순이 (Kkeutsuni)</h4>
+              <div class="meta-tags">
+                <span class="meta-tag"><i class="fa-solid fa-cat"></i> 발리니즈 (장모 샴)</span>
+                <span class="meta-tag"><i class="fa-solid fa-cake-candles"></i> 9살</span>
+                <span class="meta-tag"><i class="fa-solid fa-venus"></i> 여아 (중성화 완료)</span>
+              </div>
+              <p class="profile-bio">
+                사파이어 눈동자와 폭신폭신 장모 포인트 샴 코트를 뽐내는 요정! 작고 가볍고 귀여운데, 표정은 언제나 나라 잃은 듯 뚱해서 그 갭차이가 너무나도 사랑스러운 매력 덩어리입니다!
+              </p>
+              <div class="stat-container">
+                <h5>끝순이의 매력 능력치</h5>
+                <div class="stat-bar">
+                  <span class="stat-label">뚱함 (Grumpy Cute)</span>
+                  <div class="progress-bg"><div class="progress-fill kkeutsuni-fill" style="width: 100%;"></div></div>
+                  <span class="stat-val">120%</span>
+                </div>
+                <div class="stat-bar">
+                  <span class="stat-label">부드러움 (Fluffiness)</span>
+                  <div class="progress-bg"><div class="progress-fill kkeutsuni-fill" style="width: 98%;"></div></div>
+                  <span class="stat-val">98%</span>
+                </div>
+                <div class="stat-bar">
+                  <span class="stat-label">독립성 (My Way)</span>
+                  <div class="progress-bg"><div class="progress-fill kkeutsuni-fill" style="width: 85%;"></div></div>
+                  <span class="stat-val">85%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Playzone Section -->
+    <section id="playzone" class="playzone">
+      <div class="container">
+        <div class="section-title text-center">
+          <span class="subtitle">Interactive Play Zone</span>
+          <h3>우당탕탕 놀이방</h3>
+          <p class="section-desc">마우스를 사용해서 루비와 끝순이랑 신나게 놀아주세요!</p>
+        </div>
+
+        <div class="playzone-grid">
+          <!-- Game 1: Ruby Toy Chase -->
+          <div class="play-box chase-box">
+            <h4>💪 루비의 광속 장난감 사냥</h4>
+            <p>아래 노란색 둥근 놀이터 위에서 마우스를 마구 움직여보세요! 마우스 포인터(털실 장난감)를 잡기 위해 근육질 루비의 발바닥이 우렁차게 돌진합니다!</p>
+            <div class="chase-arena" id="chaseArena">
+              <div class="chase-toy" id="chaseToy"><i class="fa-solid fa-baseball"></i></div>
+              <div class="chase-paw" id="chasePaw"><i class="fa-solid fa-paw"></i></div>
+              <div class="chase-score" id="chaseScore">루비의 돌진 속도: <span id="speedVal">0</span> km/h</div>
+            </div>
+            <div class="play-footer">
+              <button class="btn btn-secondary btn-sm" onclick="resetChaseGame()">장난감 교체! ⚾</button>
+            </div>
+          </div>
+
+          <!-- Game 2: Kkeutsuni Petting Simulator -->
+          <div class="play-box pet-box">
+            <h4>💅 뚱냥이 끝순이 쓰다듬기</h4>
+            <p>귀찮아 보이지만 사실 관심받고 싶은 끝순이랍니다! 뚱한 끝순이 이미지의 <strong>이마, 뺨, 턱밑</strong>을 부드럽게 마우스로 클릭(또는 터치)해 보세요!</p>
+            <div class="pet-arena" id="petArena">
+              <img src="pic/20180218_174703.jpg" alt="끝순이 쓰다듬기" id="petTargetImg">
+              
+              <!-- Hotspots -->
+              <div class="hotspot forehead-hotspot" data-zone="forehead" style="top: 48%; left: 52%;" title="이마"></div>
+              <div class="hotspot cheek-hotspot" data-zone="cheek" style="top: 60%; left: 45%;" title="뺨"></div>
+              <div class="hotspot chin-hotspot" data-zone="chin" style="top: 64%; left: 58%;" title="턱밑"></div>
+
+              <!-- Translator Bubble -->
+              <div class="bubble-speech" id="petBubble">
+                나를 만질 특권을 주겠다냥! 💅
+              </div>
+            </div>
+            <div class="play-footer text-center">
+              <span class="interaction-count">끝순이 만족도: <span id="heartCount">0</span>% ♥️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retro TV Video Section -->
+    <section id="video-zone" class="video-zone">
+      <div class="container">
+        <div class="section-title text-center">
+          <span class="subtitle">Home Video</span>
+          <h3>📺 루비 & 끝순이 홈 비디오</h3>
+          <p class="section-desc">우당탕탕 뛰노는 두 귀요미의 사랑스러운 일상 영상을 브라운관 TV로 감상해보세요!</p>
+        </div>
+
+        <div class="tv-container-wrapper">
+          <div class="retro-tv">
+            <!-- Antenna -->
+            <div class="tv-antenna">
+              <div class="antenna-left"></div>
+              <div class="antenna-right"></div>
+              <div class="antenna-base"></div>
+            </div>
+            
+            <!-- TV Case -->
+            <div class="tv-case">
+              <!-- Screen area -->
+              <div class="tv-screen-container">
+                <div class="tv-screen">
+                  <video id="tvVideo" src="pic/20170826_170535.mp4" playsinline loop></video>
+                  <div class="tv-glare"></div>
+                  <div class="tv-static-overlay" id="tvStatic"></div>
+                  
+                  <!-- Custom TV Play Overlay -->
+                  <div class="tv-play-overlay" id="tvPlayOverlay">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Side control panel -->
+              <div class="tv-controls">
+                <div class="tv-brand">RETRO-CAT</div>
+                <div class="tv-dials">
+                  <div class="tv-dial-wrapper">
+                    <span class="dial-label">CH</span>
+                    <div class="tv-dial" id="dialChannel"></div>
+                  </div>
+                  <div class="tv-dial-wrapper">
+                    <span class="dial-label">VOL</span>
+                    <div class="tv-dial" id="dialVolume"></div>
+                  </div>
+                </div>
+                <div class="tv-led-indicator">
+                  <div class="tv-led" id="tvLed"></div>
+                  <span class="led-label">POWER</span>
+                </div>
+                <div class="tv-speaker">
+                  <div class="speaker-grill"></div>
+                  <div class="speaker-grill"></div>
+                  <div class="speaker-grill"></div>
+                  <div class="speaker-grill"></div>
+                  <div class="speaker-grill"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Cute cat ears on top of TV -->
+            <div class="tv-cat-ears">
+              <div class="ear-left"></div>
+              <div class="ear-right"></div>
+            </div>
+            
+            <!-- TV Legs -->
+            <div class="tv-legs">
+              <div class="leg-left"></div>
+              <div class="leg-right"></div>
+            </div>
+          </div>
+
+          <!-- Custom styled TV Remote -->
+          <div class="tv-remote">
+            <button class="remote-btn" id="remotePlayBtn" title="재생/일시정지"><i class="fa-solid fa-play"></i></button>
+            <button class="remote-btn" id="remoteMuteBtn" title="음소거"><i class="fa-solid fa-volume-high"></i></button>
+            <div class="remote-progress-container">
+              <div class="time-label" id="videoCurrentTime">00:00</div>
+              <input type="range" id="remoteProgressBar" min="0" max="100" value="0">
+              <div class="time-label" id="videoDuration">00:00</div>
+            </div>
+            <button class="remote-btn" id="remoteLoopBtn" title="반복재생 활성화"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="remote-btn" id="remoteExpandBtn" title="전체화면"><i class="fa-solid fa-expand"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="section-title text-center">
+          <span class="subtitle">Photo Gallery</span>
+          <h3>우당탕탕 포토 타임</h3>
+          <p class="section-desc">폴라로이드 필터 속에 담긴 루비와 끝순이의 일상 찰나! (클릭하면 크게 보실 수 있어요)</p>
+        </div>
+
+        <div class="gallery-filters text-center">
+          <button class="btn btn-secondary btn-sm active" data-filter="all">모두 보기 🐾</button>
+          <button class="btn btn-secondary btn-sm" data-filter="ruby">듬직오빠 루비 🏋️‍♂️</button>
+          <button class="btn btn-secondary btn-sm" data-filter="kkeutsuni">시크공주 끝순이 💅</button>
+          <button class="btn btn-secondary btn-sm" data-filter="duo">우당탕탕 단짝 & 일상 🥎</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Dynamic Polaroid cards will be loaded here via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Guestbook Section -->
+    <section id="guestbook" class="guestbook">
+      <div class="container">
+        <div class="section-title text-center">
+          <span class="subtitle">Guestbook</span>
+          <h3>루비 & 끝순이에게 편지 쓰기</h3>
+          <p class="section-desc">귀여운 두 아이들에게 따뜻한 칭찬 메시지와 스티커를 붙여주세요! (Local Storage 저장)</p>
+        </div>
+
+        <div class="guestbook-container">
+          <!-- Write Form -->
+          <div class="guestbook-form-box">
+            <h4>스티커 방명록 남기기 📝</h4>
+            <form id="guestForm" onsubmit="addMessage(event)">
+              <div class="form-group">
+                <label for="visitorName">당신의 이름/닉네임</label>
+                <input type="text" id="visitorName" required placeholder="예: 귀여운 고양이 팬">
+              </div>
+              
+              <div class="form-group">
+                <label>스티커 고르기 ✨</label>
+                <div class="sticker-selector">
+                  <label class="sticker-opt">
+                    <input type="radio" name="sticker" value="🐟" checked>
+                    <span class="sticker-emoji">🐟</span>
+                  </label>
+                  <label class="sticker-opt">
+                    <input type="radio" name="sticker" value="🐾">
+                    <span class="sticker-emoji">🐾</span>
+                  </label>
+                  <label class="sticker-opt">
+                    <input type="radio" name="sticker" value="🥎">
+                    <span class="sticker-emoji">🥎</span>
+                  </label>
+                  <label class="sticker-opt">
+                    <input type="radio" name="sticker" value="🥫">
+                    <span class="sticker-emoji">🥫</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="visitorText">메시지 내용</label>
+                <textarea id="visitorText" rows="3" required placeholder="루비와 끝순이에게 사랑스러운 말을 전해주세요!"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-bounce">스티커 꾹 붙이기! <i class="fa-solid fa-location-arrow"></i></button>
+            </form>
+          </div>
+
+          <!-- Board Grid -->
+          <div class="guestbook-board">
+            <h4>실시간 메시지 보드 📌</h4>
+            <div class="board-grid" id="boardGrid">
+              <!-- Sticky notes will be added here via JS -->
+            </div>
+            <div class="board-empty" id="boardEmpty">
+              아직 붙여진 메시지가 없어요. 첫 번째 스티커를 붙여보세요! 🐾
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container text-center">
+      <div class="footer-logo">
+        <span class="logo-emoji">🐾</span>
+        <h3>루비 & 끝순이의 우당탕탕 하우스</h3>
+      </div>
+      <p>이 웹 애플리케이션은 집사님의 사랑스러운 두 고양이 루비와 끝순이를 널리 알리기 위해 제작되었습니다.</p>
+      <p class="copyright">&copy; 2026 Ruby & Kkeutsuni. All rights reserved. Made with love and passion.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div class="lightbox" id="galleryLightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-content-wrapper">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="크게 보기">
+      <div class="lightbox-caption">
+        <h4 id="lightboxTitle"></h4>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
